@@ -1,164 +1,69 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zdena Kašparová – Kandidátka do Poslanecké sněmovny</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Zdena Kašparová</title>
   <style>
-    /* Reset a základ */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff;
-      color: #222;
-      line-height: 1.6;
-      font-size: 16px;
-    }
+    /* --- Reset & Base --- */
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family: 'Segoe UI', sans-serif; color:#222; background:#fff; line-height:1.6; }
+    a { color:#ce0f68; text-decoration:none; transition:.3s; }
+    a:hover { color:#a90b53; }
 
-    a {
-      color: #ce0f68;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #a90b53;
-    }
+    /* --- Header & Nav --- */
+    header { position:sticky; top:0; background:#fff; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; z-index:10; }
+    .header-left { display:flex; align-items:center; gap:10px; }
+    header img { height:40px; width:auto; }
+    header h1 { font-size:1.5rem; color:#ce0f68; }
+    nav ul { list-style:none; display:flex; gap:1.5rem; }
+    nav li { font-weight:600; text-transform:uppercase; font-size:.85rem; border-bottom:3px solid transparent; padding-bottom:3px; cursor:pointer; transition:.3s; }
+    nav li.active, nav li:hover { border-color:#ce0f68; }
+    nav a { padding:.25rem 0; display:inline-block; }
 
-    header {
-      background: #fff;
-      border-bottom: 1px solid #eee;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-    }
+    /* --- Main Sections --- */
+    main { max-width:900px; margin:2rem auto; padding:0 1rem; }
+    section.intro { text-align:center; margin-bottom:3rem; }
+    section.intro h2 { font-size:2rem; color:#333; margin-bottom:.5rem; }
+    section.intro p { font-size:1.1rem; color:#555; max-width:600px; margin:0 auto; }
+    .btn-primary { background:#ce0f68; color:#fff; padding:.8rem 2rem; border-radius:4px; text-transform:uppercase; font-weight:700; letter-spacing:.05em; transition:.3s; display:inline-block; margin-top:1.5rem;}
+    .btn-primary:hover { background:#a90b53; }
 
-    header h1 {
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin: 0;
-      color: #ce0f68;
-    }
+    section.news { margin-bottom:3rem; }
+    section.news h3 { font-size:1.5rem; margin-bottom:1rem; color:#333; }
+    .news-item { margin-bottom:1.5rem; }
+    .news-item h4 { font-size:1.2rem; margin-bottom:.3rem; }
+    .news-item .date { font-size:0.9rem; color:#777; }
 
-    header img {
-      height: 40px;
-      width: auto;
-    }
+    /* --- Contact Form --- */
+    section.contact form { display:grid; grid-gap:1rem; }
+    section.contact input, section.contact textarea { width:100%; padding:.75rem; border:1px solid #ccc; border-radius:4px; font-size:1rem; }
+    section.contact button { background:#ce0f68; color:#fff; padding:.75rem; border:none; border-radius:4px; font-weight:700; cursor:pointer; transition:.3s; }
+    section.contact button:hover { background:#a90b53; }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
+    /* --- Footer --- */
+    footer { text-align:center; border-top:1px solid #eee; padding:2rem 1rem; color:#777; font-size:0.9rem; }
 
-    nav li {
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      border-bottom: 3px solid transparent;
-      padding-bottom: 3px;
-      cursor: pointer;
-      transition: border-color 0.3s ease;
-    }
-
-    nav li:hover, nav li.active {
-      border-bottom-color: #ce0f68;
-    }
-
-    nav a {
-      color: inherit;
-      padding: 0.25rem 0;
-      display: inline-block;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    section.intro {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    section.intro h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      color: #333;
-    }
-
-    section.intro p {
-      font-size: 1.1rem;
-      color: #555;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: #ce0f68;
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 4px;
-      font-weight: 700;
-      margin-top: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      background: #a90b53;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      border-top: 1px solid #eee;
-      color: #777;
-      font-size: 0.9rem;
-      margin-top: 4rem;
-    }
-
-    /* Responsivita */
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
+    /* --- Responsive --- */
+    @media (max-width:600px) {
+      nav ul { flex-direction:column; gap:.75rem; }
+      header { flex-direction:column; align-items:flex-start; gap:.5rem; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Starostov%C3%A9_a_nez%C3%A1visl%C3%AD_Logo.svg/1000px-Starostov%C3%A9_a_nez%C3%A1visl%C3%AD_Logo.svg.png" alt="Logo STAN">
-    <h1>Zdena Kašparová</h1>
+    <div class="header-left">
+      <img src="https://i.imgur.com/xeIhYRM.png" alt="Logo">
+      <h1>Zdena Kašparová</h1>
+    </div>
     <nav>
       <ul>
         <li class="active"><a href="#">Úvod</a></li>
         <li><a href="#">O mně</a></li>
-        <li><a href="#">Konference</a></li>
         <li><a href="#">Aktuality</a></li>
         <li><a href="#">Fotky</a></li>
         <li><a href="#">Videa</a></li>
-        <li><a href="#">Knihy</a></li>
         <li><a href="#">Kontakt</a></li>
       </ul>
     </nav>
@@ -167,16 +72,22 @@
   <main>
     <section class="intro">
       <h2>Vaše kandidátka do Poslanecké sněmovny</h2>
-      <p>Zdena Kašparová je zkušená a spolehlivá politička, která se stará o lidi a jejich každodenní potřeby.</p>
+      <p>Zdena Kašparová usiluje o zlepšení regionálních služeb, podporu rodin a transparentní vládu.</p>
       <a href="#kontakt" class="btn-primary">Kontaktujte mě</a>
     </section>
 
-    <!-- Tady můžeš přidat další sekce, třeba O mně, aktuality atd. -->
-  </main>
+    <section class="news">
+      <h3>Aktuality</h3>
+      <div class="news-item">
+        <h4>Představení volebního programu</h4>
+        <div class="date">12. června 2025</div>
+        <p>Na veřejné konferenci představím hlavní body volebního plánu a zodpovím otázky občanů.</p>
+      </div>
+      <div class="news-item">
+        <h4>Setkání s občany v Olomouci</h4>
+        <div class="date">5. června 2025</div>
+        <p>Zveme vás na otevřené setkání v sále Oranžerie, kde probereme důležitá témata regionu.</p>
+      </div>
+    </section>
 
-  <footer>
-    &copy; 2025 Zdena Kašparová. Všechna práva vyhrazena.
-  </footer>
-</body>
-</html>
-
+    <section class="contact
